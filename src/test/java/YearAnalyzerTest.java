@@ -17,7 +17,13 @@ public class YearAnalyzerTest {
         assertTrue(yearAnalyzer.isLeapYear(2008));
         assertTrue(yearAnalyzer.isLeapYear(2012));
         assertTrue(yearAnalyzer.isLeapYear(2016));
-        assertTrue(yearAnalyzer.isLeapYear(1900));
+
+    }
+
+    @Test
+    public void ShouldNotReturnYearAsLeapIfYearIsNotDivisibleBy400ButDivisibleBy100() {
+        YearAnalyzer yearAnalyzer = new YearAnalyzer();
+        assertFalse(yearAnalyzer.isLeapYear(1900));
     }
 
     @Test
