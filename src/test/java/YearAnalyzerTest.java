@@ -1,19 +1,24 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 
 public class YearAnalyzerTest {
+    private YearAnalyzer yearAnalyzer;
+
+    @Before
+    public void setUp() {
+        yearAnalyzer = new YearAnalyzer();
+    }
 
     @Test
     public void ShouldReturnLeapYearIfYearIsDivisibleBy400() {
-        YearAnalyzer yearAnalyzer = new YearAnalyzer();
         assertTrue(yearAnalyzer.isLeapYear(2000));
     }
 
     @Test
     public void ShouldReturnYearAsLeapIfYearIsDivisibleBy4() {
-        YearAnalyzer yearAnalyzer = new YearAnalyzer();
         assertTrue(yearAnalyzer.isLeapYear(2008));
         assertTrue(yearAnalyzer.isLeapYear(2012));
         assertTrue(yearAnalyzer.isLeapYear(2016));
@@ -22,13 +27,11 @@ public class YearAnalyzerTest {
 
     @Test
     public void ShouldNotReturnYearAsLeapIfYearIsNotDivisibleBy400ButDivisibleBy100() {
-        YearAnalyzer yearAnalyzer = new YearAnalyzer();
         assertFalse(yearAnalyzer.isLeapYear(1900));
     }
 
     @Test
     public void ShouldNotReturnYearAsLeapIfYearIsNotDivisibleBy4() {
-        YearAnalyzer yearAnalyzer = new YearAnalyzer();
         assertFalse(yearAnalyzer.isLeapYear(2018));
     }
 }
