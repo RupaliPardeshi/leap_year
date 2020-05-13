@@ -34,4 +34,18 @@ public class YearAnalyzerTest {
     public void ShouldNotReturnYearAsLeapIfYearIsNotDivisibleBy4() {
         assertFalse(yearAnalyzer.isLeapYear(2018));
     }
+
+    @Test
+    public void ShouldReturnYearAsLeapIfYearIsDivisibleBy4000() {
+        YearAnalyzer yearAnalyzer = new YearAnalyzer();
+        assertTrue(yearAnalyzer.isLeapYear(4000));
+        assertTrue(yearAnalyzer.isLeapYear(8000));
+    }
+
+    @Test
+    public void ShouldNotReturnYearAsLeapIfYearIsNotDivisibleBy4000() {
+        YearAnalyzer yearAnalyzer = new YearAnalyzer();
+        assertFalse(yearAnalyzer.isLeapYear(4007));
+    }
+
 }
